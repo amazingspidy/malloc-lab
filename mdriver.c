@@ -593,6 +593,8 @@ static int eval_mm_valid(trace_t *trace, int tracenum, range_t **ranges)
 	malloc_error(tracenum, 0, "mm_init failed.");
 	return 0;
     }
+	//printf("eval_mm_validfsfsdfssdfd\n");
+
 
     /* Interpret each operation in the trace in order */
     for (i = 0;  i < trace->num_ops;  i++) {
@@ -633,6 +635,7 @@ static int eval_mm_valid(trace_t *trace, int tracenum, range_t **ranges)
 	    
 	    /* Call the student's realloc */
 	    oldp = trace->blocks[index];
+		// printf("%d\n", index);
 	    if ((newp = mm_realloc(oldp, size)) == NULL) {
 		malloc_error(tracenum, i, "mm_realloc failed.");
 		return 0;
@@ -709,6 +712,8 @@ static double eval_mm_util(trace_t *trace, int tracenum, range_t **ranges)
     mem_reset_brk();
     if (mm_init() < 0)
 	app_error("mm_init failed in eval_mm_util");
+	//printf("eval_mm_utilddddd\n");
+
 
     for (i = 0;  i < trace->num_ops;  i++) {
         switch (trace->ops[i].type) {
@@ -787,6 +792,7 @@ static void eval_mm_speed(void *ptr)
     int i, index, size, newsize;
     char *p, *newp, *oldp, *block;
     trace_t *trace = ((speed_t *)ptr)->trace;
+	//printf("eval_mm_speedsdfsdfsf\n");
 
     /* Reset the heap and initialize the mm package */
     mem_reset_brk();

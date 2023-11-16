@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "mman.h": "c"
+        "mman.h": "c",
+        "mm.h": "c"
     }
 }
